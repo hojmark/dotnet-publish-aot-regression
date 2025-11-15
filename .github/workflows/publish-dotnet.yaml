@@ -1,4 +1,4 @@
-name: Publish AOT (.NET 10)
+name: Publish AOT
 permissions:
   contents: read
 
