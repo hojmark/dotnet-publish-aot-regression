@@ -1,0 +1,23 @@
+name: Publish AOT (.NET 10)
+permissions:
+  contents: read
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Publish
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Build
+        run: |
+          dotnet build
+
+      - name: Publish
+        run: |
+          dotnet publish --runtime linux-x64 --self-contained --no-restore --no-build
